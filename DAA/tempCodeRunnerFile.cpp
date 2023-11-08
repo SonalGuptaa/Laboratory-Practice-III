@@ -1,0 +1,1 @@
+cout << "--------All possible solutions--------";
