@@ -27,7 +27,6 @@ bool isSafe(int board[][8], int row, int col, int n) {
         col++;
     }
     
-
     return true;
 }
 
@@ -49,17 +48,17 @@ bool nQueen(int board[][8], int row, int n) {
         return true;
     }
 
-    bool placed = false;
+  
 
     for (int col = 0; col < n; col++) {
         if (isSafe(board, row, col, n)) {
             board[row][col] = 1;
-            placed = nQueen(board, row + 1, n) || placed;
+            nQueen(board, row + 1, n);
             board[row][col] = 0; // Backtrack
         }
     }
 
-    return placed;
+ 
 }
 
 int main() {
@@ -68,11 +67,7 @@ int main() {
 
     int board[n][8] = {0}; // Initialize the board with all 0s
 
-    if (!nQueen(board, 0, n)) {
-        cout << "No solution exists.";
-    } else {
-        cout << "--------All possible solutions--------";
-    }
-
+   
+    nQueen(board,0,n);
     return 0;
 }
